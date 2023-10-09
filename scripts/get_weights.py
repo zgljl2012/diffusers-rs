@@ -72,7 +72,7 @@ def get_urls(sd_version, weight_bits):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Download weights for diffusers-rs.")
     parser.add_argument("--sd_version", "-v", choices=["2.1", "1.5"], default="2.1")
-    parser.add_argument("--weight_bits", "-w", choices=["16", "32"], default="16")
+    parser.add_argument("--weight_bits", "-w", choices=["16", "32"], default="32")
     args = parser.parse_args()
 
     print("Setting up model weights for diffusers-rs...")
