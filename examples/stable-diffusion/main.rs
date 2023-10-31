@@ -231,6 +231,7 @@ fn run(args: Args) -> anyhow::Result<()> {
         }
     };
 
+    // 确定哪个模型使用 CPU，默认都不用
     let device_setup = diffusers::utils::DeviceSetup::new(cpu);
     let clip_device = device_setup.get("clip");
     let vae_device = device_setup.get("vae");
@@ -279,7 +280,7 @@ fn run(args: Args) -> anyhow::Result<()> {
             let noise_pred = noise_pred.chunk(2, 0);
             let (noise_pred_uncond, noise_pred_text) = (&noise_pred[0], &noise_pred[1]);
             let noise_pred =
-                noise_pred_uncond + (noise_pred_text - noise_pred_uncond) * GUIDANCE_SCALE;
+                noise_pred_uncond + (noise_pred_text - noise_pred_uncond) * GUIDANCE_SCALE; 
             latents = scheduler.step(&noise_pred, timestep, &latents);
 
             if args.intermediary_images {

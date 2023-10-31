@@ -36,3 +36,11 @@ $Env:Path += ";D:\libs\libtorch\lib"
 cargo run --example stable-diffusion --features clap -- --prompt "A rusty robot holding a fire torch."
 
 ```
+
+## 模型讲解
+
+- clip
+- unet
+- vae
+
+[手写 Stable Diffusion](https://zhuanlan.zhihu.com/p/621325215)

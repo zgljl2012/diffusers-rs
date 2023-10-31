@@ -337,13 +337,13 @@ const PAT: &str =
 // https://github.com/openai/CLIP/blob/main/clip/simple_tokenizer.py
 /// A tokenizer for CLIP.
 pub struct Tokenizer {
-    re: regex::Regex,
-    encoder: HashMap<String, usize>,
-    decoder: HashMap<usize, String>,
-    bpe_ranks: HashMap<(String, String), usize>,
-    start_of_text_token: usize,
-    end_of_text_token: usize,
-    config: Config,
+    pub re: regex::Regex,
+    pub encoder: HashMap<String, usize>,
+    pub decoder: HashMap<usize, String>,
+    pub bpe_ranks: HashMap<(String, String), usize>,
+    pub start_of_text_token: usize,
+    pub end_of_text_token: usize,
+    pub config: Config,
 }
 
 impl Tokenizer {
@@ -396,6 +396,8 @@ impl Tokenizer {
         };
         Ok(tokenizer)
     }
+
+
 
     fn get_pairs(word: &[String]) -> HashSet<(String, String)> {
         let mut pairs = HashSet::new();
